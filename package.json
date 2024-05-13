@@ -2,7 +2,26 @@
   "name": "@atcs-demo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "frontend:serve": "nx serve frontend",
+    "frontend:build": "nx build frontend",
+    "backend:start": "nx serve backend",
+    "backend:build": "nx build backend",
+
+    "typeorm": "typeorm-ts-node-commonjs -d libs/backend/features/src/lib/database/orm.config.ts",
+    "db:migration:create": "npx typeorm-ts-node-commonjs migration:create libs/backend/features/src/lib/database/migrations/created_migration --timestamp",
+    "db:migration:generate": "nx build backend && npm run typeorm migration:generate libs/backend/features/src/lib/database/migrations/generated_migration --timestamp",
+    "db:migration:run": "nx build backend && npm run typeorm migration:run",
+    "db:migration:revert": "npm run typeorm migration:revert",
+    "db:migration:show": "npm run typeorm migration:show",
+
+    "db:start": "docker-compose up -d",
+    "db:stop": "docker-compose stop",
+    "db:remove": "docker-compose down -v"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.3.0",
@@ -14,12 +33,18 @@
     "@angular/platform-browser-dynamic": "~17.3.0",
     "@angular/router": "~17.3.0",
     "@nestjs/common": "^10.0.2",
+    "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.2",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.2",
+    "@nestjs/swagger": "^7.3.1",
+    "@nestjs/typeorm": "^10.0.2",
     "axios": "^1.6.0",
+    "pg": "^8.11.5",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0",
+    "typeorm": "^0.3.20",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {

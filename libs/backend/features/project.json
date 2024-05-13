@@ -1,0 +1,20 @@
+{
+  "name": "features",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/backend/features/src",
+  "projectType": "library",
+  "tags": ["type:features", "scope:backend"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/backend/features",
+        "tsConfig": "libs/backend/features/tsconfig.lib.json",
+        "packageJson": "libs/backend/features/package.json",
+        "main": "libs/backend/features/src/index.ts",
+        "assets": ["libs/backend/features/*.md"]
+      }
+    }
+  }
+}
