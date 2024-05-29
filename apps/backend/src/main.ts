@@ -8,6 +8,8 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app/app.module';
+import  cookieParser from 'cookie-parser';
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,6 +19,7 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
   const port = configService.get('API_PORT') || 3003;
+  app.use(cookieParser());
 
   //setup swagger
   const config = new DocumentBuilder()
@@ -35,3 +38,5 @@ async function bootstrap() {
 }
 
 bootstrap();
+
+

@@ -16,8 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@mtfs/backend/features": ["libs/backend/features/src/index.ts"],
-      "@mtfs/shared/domain": ["libs/shared/domain/src/index.ts"]
-      
+      "@mtfs/backend/utils": ["libs/backend/utils/src/index.ts"],
+      "@mtfs/shared/domain": ["libs/shared/domain/src/index.ts"],
+      "@mtfs/shared/enums": ["libs/shared/enums/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

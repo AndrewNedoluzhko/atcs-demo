@@ -1,4 +1,5 @@
 import { IBase } from "./base.interface";
+import { IRole } from "./role.interface";
 
 export interface IUser  extends IBase{
   email: string;
@@ -6,5 +7,8 @@ export interface IUser  extends IBase{
   phoneNumber: string;
   firstname: string;
   lastname: string; 
-}
 
+  role?: IRole;
+  roleId?: string;
+}
+export type ICreateUser = Pick<IUser, 'email' | 'password' | 'phoneNumber' | 'firstname' | 'lastname'>;
