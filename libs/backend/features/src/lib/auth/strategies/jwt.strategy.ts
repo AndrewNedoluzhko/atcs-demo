@@ -18,8 +18,6 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([(request: Request) => {
-        this.logger.debug(`cookie Authentication`);
-        this.logger.debug(request?.cookies?.Authentication);
         return request?.cookies?.Authentication;
       }]),
       secretOrKey: `${parse(configService.get('JWT_ACCESS_TOKEN_SECRET') as string)}`,      
@@ -29,7 +27,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   }
 
   async validate(payload: IJwtPayload) {
-    this.logger.debug(`validate`)
+
     return await this.authService.verify(payload.email);
   }
 }

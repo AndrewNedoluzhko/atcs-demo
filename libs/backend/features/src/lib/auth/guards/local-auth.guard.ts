@@ -3,6 +3,4 @@ import { AuthGuard } from '@nestjs/passport';
 
 
 @Injectable()
-export class LocalAuthGuard extends AuthGuard('local'){
-  private readonly logger = new Logger(LocalAuthGuard.name)
-}
+export class LocalAuthGuard extends AuthGuard('local'){}

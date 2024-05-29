@@ -26,12 +26,11 @@ export class AuthService {
   }
 
   async login(email: string, password: string) {
-    //this.logger.debug(`login`);
+
     const user = await this.usersService.findOneByEmail(email);
     if (await user.veryfyPassword(password)) {
       delete user.password;
-      delete user.refreshToken;
-      //this.logger.debug(`login.success`);
+      delete user.refreshToken;      
       return user;
     } else {
       throw new UnauthorizedException('Password missmatched')

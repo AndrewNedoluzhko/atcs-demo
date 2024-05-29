@@ -17,8 +17,7 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'local') {
     });
   }
 
-  validate(email: string, password: string): Promise<User> {
-    this.logger.debug(`validate`)
+  validate(email: string, password: string): Promise<User> {   
     return this.authService.login(email, password);
   }
 }
