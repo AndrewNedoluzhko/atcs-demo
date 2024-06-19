@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { HeaderComponent } from '@mtfs/frontend/ui-components';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [HeaderComponent, RouterModule],
   selector: 'nav-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

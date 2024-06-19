@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
-    "module": "esnext",
+    "module": "es2022",
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
@@ -17,6 +17,14 @@
     "paths": {
       "@mtfs/backend/features": ["libs/backend/features/src/index.ts"],
       "@mtfs/backend/utils": ["libs/backend/utils/src/index.ts"],
+      "@mtfs/frontend/error-pages": [
+        "libs/frontend/ui/error-pages/src/index.ts"
+      ],
+      "@mtfs/frontend/ui-components": [
+        "libs/frontend/ui/ui-components/src/index.ts"
+      ],
+      "@mtfs/frontend/ui-style": ["libs/frontend/ui/ui-style/src/index.ts"],
+      "@mtfs/frontend/utils": ["libs/frontend/utils/src/index.ts"],
       "@mtfs/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@mtfs/shared/enums": ["libs/shared/enums/src/index.ts"]
     }

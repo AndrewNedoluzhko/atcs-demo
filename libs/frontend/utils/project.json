@@ -1,0 +1,13 @@
+{
+  "name": "services",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/utils/src",
+  "prefix": "mtfs",
+  "projectType": "library",
+  "tags": ["type:utils", "scope:frontend"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

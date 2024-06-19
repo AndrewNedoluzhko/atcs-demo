@@ -1,0 +1,17 @@
+.header{
+  position: absolute;
+  z-index: 1000;
+  height: 65px;
+}
+.logo {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+@media only screen and (max-width: 600px) {
+  .logo {
+    font-size: 14px; /* reduse font size for mobile */
+  }
+}

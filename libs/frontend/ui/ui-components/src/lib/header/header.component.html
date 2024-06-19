@@ -1,0 +1,26 @@
+<mat-toolbar class="mat-elevation header" color="primary">
+  <!--side navigation toggle button-->
+    <button mat-icon-button matTooltip="Menu" color="white" aria-label="Main menu"
+      (click)="toggleMenu()" >
+      <mat-icon aria-hidden="false" fontIcon="menu">menu</mat-icon>
+    </button>
+    <!--app name or logo-->
+    <span class="logo">Awesome Trucks Company</span>
+    <span class="example-spacer"></span>
+    <!--user's profile button-->
+    <button mat-icon-button matTooltip="User's profile" color="white" aria-label="User's profile" 
+      class="material-symbol-outlined" (click)="displayProfile()">  
+      <mat-icon aria-hidden="false" fontIcon="person">person</mat-icon>
+    </button>
+
+    <!-- 
+      <button mat-icon-button matTooltip="User's profile" color="white" aria-label="User's profile" 
+      class="material-symbol-outlined" *ngIf="isAuthenticated()" [matMenuTriggerFor]="$any(profile?.matMenu)" [matMenuTriggerData]="{'user' : this.user}">  
+      <mat-icon aria-hidden="false" fontIcon="person">person</mat-icon>
+    </button>
+      <app-display-user-profile #profile="displayUserProfile" ></app-display-user-profile>  -->
+    <!--logout button-->
+    <button mat-icon-button matTooltip="Logout" color="white" aria-label="Main menu" (click)="logout()">
+      <mat-icon aria-hidden="false" fontIcon="logout">logout</mat-icon>
+    </button>
+  </mat-toolbar>

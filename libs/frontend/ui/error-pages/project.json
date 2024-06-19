@@ -1,0 +1,13 @@
+{
+  "name": "error-pages",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/ui/error-pages/src",
+  "prefix": "mtfs",
+  "projectType": "library",
+  "tags": ["type:ui", "scope:frontend"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.container {  
+  position: absolute;  
+  top: 65px;
+  width: 100%;
+}
+
+mat-sidenav {
+  display: flex;
+  float: left;
+  width: 250px; 
+  position: fixed;  
+  top: 65px;  
+}

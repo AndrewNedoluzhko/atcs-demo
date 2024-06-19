@@ -1,0 +1,13 @@
+{
+  "name": "scss",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/ui/ui-style/src",
+  "prefix": "mtfs",
+  "projectType": "library",
+  "tags": ["type:ui", "scope:frontend"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
