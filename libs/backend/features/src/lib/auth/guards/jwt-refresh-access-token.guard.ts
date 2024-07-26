@@ -9,11 +9,14 @@ export class JwtRefreshAccessTokenGuard extends AuthGuard('jwt-refresh-access-to
   override canActivate(
     context: ExecutionContext
   ){
+    this.logger.debug(`${JwtRefreshAccessTokenGuard.name} canActivate`);    
     return super.canActivate(context);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   override handleRequest(err: unknown, user: User): any {
+    this.logger.debug(`${JwtRefreshAccessTokenGuard.name} handleRequest`);   
+
     console.log(user);
     if (err || !user) {
       console.log(err);

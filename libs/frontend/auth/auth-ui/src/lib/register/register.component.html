@@ -1,0 +1,92 @@
+
+<div class = "card-container">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>
+        Enter your register data
+      </mat-card-title>
+      <mat-card-subtitle>
+
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="container">
+      <form [formGroup] = "currentForm" (ngSubmit)="onSubmit()">
+      
+      <!--First name-->
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput type="text" placeholder="First name" formControlName = "firstname" #firstname required>
+        @if(currentForm.controls['firstname'].hasError('required')){
+          <mat-error>Required</mat-error>
+        }
+      </mat-form-field>
+
+      <!--Last name-->
+      <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input matInput type="text" placeholder="Last name" formControlName = "lastname" #lastname required>
+        @if(currentForm.controls['lastname'].hasError('required')){
+          <mat-error>Required</mat-error>
+        }
+      </mat-form-field>
+
+      <!--Email-->
+      <mat-form-field >
+        <mat-label>Email</mat-label>
+        <input matInput type="text" placeholder="Email" formControlName = "email" #email required>
+        @if(currentForm.controls['email'].hasError('required')){
+          <mat-error>Required</mat-error>
+        }
+        @if(currentForm.controls['email'].hasError('email')
+        && !currentForm.controls['email'].hasError('required')){
+          <mat-error>Enter valid email addres</mat-error>
+        }
+        @if(currentForm.controls['email'].hasError('conflict')){
+          <mat-error>{{this.errorMessage}} Enter another email or do login.</mat-error>
+        }
+      </mat-form-field>
+
+      <!--Phone number-->
+      <mat-form-field>
+        <mat-label>Phone number</mat-label>
+        <span matPrefix>+</span>
+        <input 
+          matInput type="tel" 
+          placeholder="Phone number" 
+          formControlName = "phoneNumber" 
+          #phoneNumber
+          minlength="10"
+          maxlength="14"
+          required>
+        
+        @if(currentForm.controls['phoneNumber'].hasError('required')){
+          <mat-error>Required</mat-error>
+        }
+        @if(currentForm.controls['phoneNumber'].hasError('minlength')){
+          <mat-error>Min count of numbers is 10</mat-error>
+        }
+        @if(currentForm.controls['phoneNumber'].hasError('pattern')){
+          <mat-error>Enter only numbers</mat-error>
+        }
+        @if(currentForm.controls['phoneNumber'].hasError('invalid-format')){
+          <mat-error>{{this.errorMessage}}</mat-error>
+        }
+      </mat-form-field>
+
+      <!--Password-->
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password"  placeholder="Password" formControlName ="password" autocomplete="off" #password required>
+        @if(currentForm.controls['password'].hasError('required')){
+          <mat-error>Required</mat-error>
+        }         
+      </mat-form-field> 
+
+      <mat-card-actions class="card-actions">        
+        <button mat-stroked-button class="basic-button" color="primary" type="sybmit" [disabled]="loading">Register</button>       
+        <button mat-stroked-button class="basic-button" color="primary" type="button" (click)="onLoginForm()">Login</button>
+      </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

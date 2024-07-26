@@ -1,0 +1,20 @@
+.card-container {
+  position: relative;
+  top: 85px;
+}
+
+.card {
+  max-width: 400px;
+  width: 40%;
+  height: auto;
+  margin: auto; 
+}
+
+.mat-mdc-card-title{
+  padding-bottom: 10px; 
+  font-size: 24px; 
+}
+
+.card-actions{
+  padding: 0px!important;
+}

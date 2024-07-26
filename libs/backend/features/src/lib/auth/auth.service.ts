@@ -70,6 +70,7 @@ export class AuthService {
 
 
   async removeCurrentRefreshToken(id: string) {
+    console.log(`${AuthService.name} removeCurrentRefreshToken`);
     await this.usersService.removeCurrentRefreshToken(id);
   }
 

@@ -1,0 +1,13 @@
+{
+  "name": "auth-guards",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/auth/auth-guards/src",
+  "prefix": "mtfs",
+  "projectType": "library",
+  "tags": ["type:feature", "scope:frontend"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

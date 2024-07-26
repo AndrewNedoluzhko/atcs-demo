@@ -2,8 +2,10 @@
 <mat-sidenav-container class="container">
   <mat-sidenav #sidenav mode="side">    
     <mat-nav-list>
-      <a mat-list-item>Nav Item 1</a>
-      <a mat-list-item>Nav Item 2</a>
+      @switch(this.roleName){
+        @case('Admin') {<mtfs-navigation-admin></mtfs-navigation-admin>}
+        @case('User') {<mtfs-navigation-user></mtfs-navigation-user>}
+      }
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>   

@@ -20,6 +20,7 @@ import { CurrentUser } from '@mtfs/backend/utils';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { JwtRefreshAccessTokenGuard } from './guards/jwt-refresh-access-token.guard';
 import { ClearCookiesInterceptor } from './interceptors/clear-cookies.interceptor';
+import { LogoutGuard } from './guards/logout.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -31,7 +32,6 @@ export class AuthController {
   @ApiResponse({ status: 201, type: User, description: 'User successfully registered' })
   @UseInterceptors(AccessTokenInterceptor, RefreshTokenInterceptor)
   create(@Body() createAuthDto: CreateAuthDto) {
-    this.logger.debug(`register`);
     return this.authService.register(createAuthDto);
   }
 
@@ -68,13 +68,14 @@ export class AuthController {
   @Get('logout')
   @ApiOperation({ summary: 'Log out and remove refresh token' })
   @ApiResponse({ status: 200, description: 'Logout successful' })
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(LogoutGuard)
   @HttpCode(HttpStatus.OK)
   @UseInterceptors(ClearCookiesInterceptor)
   async logout(@CurrentUser() user: User) {
+/*     console.log('LOGOUT')  
     if (user) {
       this.authService.removeCurrentRefreshToken(user.id);
-    }
+    } */
     return { succes: true };
   }
 }

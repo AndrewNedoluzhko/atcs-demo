@@ -7,6 +7,9 @@ import { MatListModule } from '@angular/material/list';
 import { HeaderComponent } from '../header/header.component';
 
 import { SideNavService } from '@mtfs/frontend/utils';
+import { AuthService } from '@mtfs/frontend/auth-service';
+import { NavigationAdminComponent } from '../navigation-admin/navigation-admin.component';
+import { NavigationUserComponent } from '../navigation-user/navigation-user.component';
 
 @Component({
   selector: 'mtfs-home',
@@ -16,7 +19,9 @@ import { SideNavService } from '@mtfs/frontend/utils';
     RouterModule,
     MatSidenavModule,
     MatListModule,
-    HeaderComponent
+    HeaderComponent,
+    NavigationAdminComponent,
+    NavigationUserComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -24,9 +29,18 @@ import { SideNavService } from '@mtfs/frontend/utils';
 export class HomeComponent implements OnInit{
   
   @ViewChild('sidenav', {static:true}) public sidenav!: MatSidenav;
+  roleName!: string | undefined;
+
   constructor(
-    private sideNavService: SideNavService
-  ){}
+    private sideNavService: SideNavService,
+    private authService: AuthService
+  ){
+    if (this.authService.userValue){
+      console.log('home.component.role?.name')
+      console.log(this.authService.userValue.role?.name)
+      this.roleName =  this.authService.userValue.role?.name;
+    }
+  }
 
   ngOnInit(){
     this.sideNavService.sideNaveToggleSubject.subscribe(()=>{

@@ -1,0 +1,69 @@
+
+<div class="mat-card-container table-card-container">
+  <mat-card class="mat-elevation-z0" >
+    <mat-card-title>
+     <h1 class="entity-title">Users</h1> 
+    </mat-card-title>
+
+    <div class="table-container">
+      <table mat-table [dataSource]= "dataSource" matSort  #table>
+        <!-- firstname -->
+        <ng-container matColumnDef="firstname">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Firstname</th>
+          <td mat-cell *matCellDef= "let element" class='m-card-title' data-label="Firstname">     
+              {{element.firstname}} {{element.lastname}}
+          </td>
+        </ng-container>
+
+        <!-- lastname -->
+        <ng-container matColumnDef="lastname">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Lastname</th>
+          <td mat-cell *matCellDef= "let element" class='m-card-title' data-label="Lastname">     
+              {{element.lastname}}
+            </td>
+        </ng-container>    
+        
+        <!-- email -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef= "let element" class='m-card-sub-title' data-label="Email">            
+            {{element.email}}
+          </td>
+        </ng-container>
+        
+        <!-- phoneNumber -->
+        <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Phone Number</th>
+          <td mat-cell *matCellDef= "let element" class='m-card-sub-title' data-label="Phone Number">        
+            {{element.phoneNumber}}            
+          </td>
+        </ng-container>
+
+        <!-- role -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Role</th>
+          <td mat-cell *matCellDef= "let element" class='m-card-sub-title' data-label="Role">        
+            {{element.role.name}}
+          </td>
+        </ng-container>
+
+        <!-- createdAt -->
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Created At</th>
+          <td mat-cell *matCellDef= "let element" class='has_label_on_mobile' data-label='Created At'>            
+            {{element.createdAt}}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef= "displayedColumn sticky:true" ></tr>
+        <tr mat-row *matRowDef= "let row; columns: displayedColumn"></tr>
+      </table>
+
+      <mat-paginator #paginator 
+        [pageSizeOptions] = "[10, 50, 100]" 
+        showFirstLastButtons>            
+      </mat-paginator>
+    </div> 
+  </mat-card>
+</div>
+

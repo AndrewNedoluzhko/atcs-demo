@@ -28,7 +28,7 @@ export class JwtRefreshAccessTokenStrategy extends PassportStrategy(Strategy, 'j
   }
 
   async validate(request: Request, payload: IJwtPayload) {
-
+    this.logger.debug(`${JwtRefreshAccessTokenStrategy.name} validate`);   
     const refreshToken = request.cookies?.Refresh;
     return await this.authService.verifyRefreshToken(payload.email, refreshToken);
   }

@@ -17,6 +17,16 @@
     "paths": {
       "@mtfs/backend/features": ["libs/backend/features/src/index.ts"],
       "@mtfs/backend/utils": ["libs/backend/utils/src/index.ts"],
+      "@mtfs/frontend/auth-guards": [
+        "libs/frontend/auth/auth-guards/src/index.ts"
+      ],
+      "@mtfs/frontend/auth-interceptor": [
+        "libs/frontend/auth/auth-interceptors/src/index.ts"
+      ],
+      "@mtfs/frontend/auth-service": [
+        "libs/frontend/auth/auth-service/src/index.ts"
+      ],
+      "@mtfs/frontend/auth-ui": ["libs/frontend/auth/auth-ui/src/index.ts"],
       "@mtfs/frontend/error-pages": [
         "libs/frontend/ui/error-pages/src/index.ts"
       ],
@@ -24,6 +34,10 @@
         "libs/frontend/ui/ui-components/src/index.ts"
       ],
       "@mtfs/frontend/ui-style": ["libs/frontend/ui/ui-style/src/index.ts"],
+      "@mtfs/frontend/users-service": [
+        "libs/frontend/users/users-service/src/index.ts"
+      ],
+      "@mtfs/frontend/users-ui": ["libs/frontend/users/users-ui/src/index.ts"],
       "@mtfs/frontend/utils": ["libs/frontend/utils/src/index.ts"],
       "@mtfs/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@mtfs/shared/enums": ["libs/shared/enums/src/index.ts"]

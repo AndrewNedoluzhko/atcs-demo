@@ -1,32 +1,26 @@
 import {
   Controller,
   Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
+  UseGuards,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { UsersService } from './users.service'
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { RoleEnum } from '@mtfs/shared/enums';
+import { Roles } from '@mtfs/backend/utils';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../roles/guards/roles.guard';
 
 @Controller('users')
+@ApiTags('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
-  }
-
   @Get()
+  @ApiOperation({summary: 'Get all user'})
+  @ApiResponse({status: 200, description: 'List of users retrieved successfully'})
+  @Roles(RoleEnum.Admin)
+  @UseGuards(JwtAuthGuard, RolesGuard)
   findAll() {
     return this.usersService.findAll();
-  }
-
-  @Get(':email')
-  findOne(@Param('email') email: string) {
-    return this.usersService.findOneByEmail(email);
   }
 }

@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
-  selector: 'nav-navigation-user',
+  selector: 'mtfs-navigation-user',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatListModule
+  ],
   templateUrl: './navigation-user.component.html',
   styleUrl: './navigation-user.component.scss',
 })
